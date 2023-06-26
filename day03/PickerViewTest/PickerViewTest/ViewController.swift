@@ -9,9 +9,10 @@ import UIKit
 
 class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     let MAX_ARRAY_NUM = 10
-    let PICKER_VIEW_COLUMN = 1 //피커 뷰를 상수값으로 지정하면 한개 여러개도 가능
+    let PICKER_VIEW_COLUMN = 2 //피커 뷰를 상수값으로 지정하면 한개 여러개도 가능
     var imageFileName : [String] = ["1.jpg","2.jpg","3.jpg","4.jpg","5.jpg","6.jpg","7.jpg","8.jpg","9.jpg","10.jpg",]
     var imageArray = [UIImage?]()
+    let PICKER_VIEW_HEIGHT:CGFloat = 80
     
 
     @IBOutlet var lblImageFileName: UILabel!
@@ -37,15 +38,28 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     }// 배열의 갯수, 몇개의 항목을 보여줄건지
     
     //실제 항목의 파일이름
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return imageFileName[row]
-    }//보여주고 싶은거 항목으로 표시 row 순서 알 수있도록
+//    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+//        return imageFileName[row]
+//    }//보여주고 싶은거 항목으로 표시 row 순서 알 수있도록
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        lblImageFileName.text=imageFileName[row]
-        
-        imageView.image=imageArray[row]
+        if(component == 1){
+            lblImageFileName.text=imageFileName[row]
+        }
+        else{
+            imageView.image=imageArray[row]
+            
+        }
     }//스크롤 했을 때 이벤트가 동작했을 때
-    
+    func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {//return 값 표시는 화살표
+        //액자 틀 줄이는
+        let imageView = UIImageView(image:imageArray[row])
+        imageView.frame=CGRect(x:0, y:0, width: 100, height: 150)
+        
+        return imageView
+    }//피커에서 이미지를 보여주는
+    func pickerView(_ pickerView: UIPickerView, rowHeightForComponent component: Int) -> CGFloat {
+        return PICKER_VIEW_HEIGHT
+    }
 
 }
 
