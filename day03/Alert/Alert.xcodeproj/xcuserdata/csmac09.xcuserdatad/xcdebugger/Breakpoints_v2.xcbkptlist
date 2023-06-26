@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   uuid = "3B9E3A15-5826-463A-904D-A7403B78361E"
+   type = "1"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "D0CC7814-F74E-40E2-BCBC-0501673207D6"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Alert/ViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "60"
+            endingLineNumber = "60"
+            landmarkName = "btnLampOff(_:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "D0CC7814-F74E-40E2-BCBC-0501673207D6 - 8deccc68cc5668e6"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Alert.ViewController.btnLampRemove(__C.UIButton) -&gt; ()"
+                  moduleName = "Alert"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/csmac09/Desktop/work/day03/Alert/Alert/ViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "61"
+                  endingLineNumber = "61"
+                  offsetFromSymbolStart = "20">
+               </Location>
+               <Location
+                  uuid = "D0CC7814-F74E-40E2-BCBC-0501673207D6 - 7e854b5385854967"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Alert.ViewController.btnLampOff(__C.UIButton) -&gt; ()"
+                  moduleName = "Alert"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/csmac09/Desktop/work/day03/Alert/Alert/ViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "60"
+                  endingLineNumber = "60"
+                  offsetFromSymbolStart = "488">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>
