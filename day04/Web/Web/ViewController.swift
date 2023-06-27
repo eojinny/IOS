@@ -29,18 +29,36 @@ class ViewController: UIViewController, WKNavigationDelegate {
         
         loadWebPage("http://google.com")
     }
+    func checkUrl(_ url: String) -> String{
+        var strUrl = url
+        let flag = strUrl.hasPrefix("http://")
+        if !flag{
+            strUrl = "http://" + strUrl
+        }
+        return strUrl
+    }
 
     @IBAction func btnGotoUrl(_ sender: UIButton) {
+        let myUrl = checkUrl(txtUrl.text!)
+        txtUrl.text = ""
+        loadWebPage(myUrl)
     }
     @IBAction func btnGoSite1(_ sender: UIButton) {
         loadWebPage("http://eclass.dongduk.ac.kr/ilos/main/main_form.acl")
     }
     @IBAction func btnGoSite2(_ sender: UIButton) {
         loadWebPage("http://naver.com")
+        //프로토콜 생략하면 동작을 안할 수도 있음 앞부분에 http 기능을 추가하는게 필요함
     }
     @IBAction func btnLoadHtmlString(_ sender: UIButton) {
+        let htmlString = "<h1> HTML String</h1><p> String 변수를 이용한 웹페이지</p> <p><a href=\"http://naver.com\">네이버</a>으로 이동</p>"
+        myWebView.loadHTMLString(htmlString, baseURL: nil)
     }
     @IBAction func btnLoadHtmlFile(_ sender: UIButton) {
+        let filepath = Bundle.main.path(forResource: "htmlView", ofType: "html")
+        let myUrl = URL(fileURLWithPath: filepath!)
+        let myRequest = URLRequest(url: myUrl)
+        myWebView.load(myRequest)
     }
     @IBAction func btnStop(_ sender: UIBarButtonItem) {
         myWebView.stopLoading()
@@ -81,3 +99,9 @@ class ViewController: UIViewController, WKNavigationDelegate {
     //웹뷰가 해야하는 걸 뷰 컨트롤러가 대신할 수 있도록 델리게이트가 연결
 }
 
+//함수 만드는 규칙
+// func 함수명 ( 파마리터 : 자료형) -> 반환값 타입{실행코드}
+// 밑줄이 되어있는 경우
+// 라벨을 붙여서 매개변수의 이름 U라고 적으면 라벨 사용하면 됨
+//익명함수 : 매변, In 반환값 날릴 수 있고 괄호 생략 가능
+//_ 매변 생략도 가능
