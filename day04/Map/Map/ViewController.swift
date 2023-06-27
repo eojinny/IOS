@@ -39,7 +39,30 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         myMap.showsUserLocation = true
         //사용자 위치정보를 활성화
     }//-> 실제 위치정보를 받아와서 지도랑 연결해서 특정 위치가 나올 수 있도록 해줘야함
-
+    func goLocation(latitudeValue: CLLocationDegrees, longitudeValue : CLLocationDegrees, delta span :Double){
+        
+        let pLocation = CLLocationCoordinate2DMake(latitudeValue, longitudeValue)
+        //현재 위치를 받아온다 클래스 (위치 좌표) 2DMake-> 지도를 2차원 좌표를 표시할 수 있는 클래스
+        let spanValue = MKCoordinateSpan(latitudeDelta: span, longitudeDelta: span)// 위도 경도 확대 배율 지정 객체로 만듬
+        let pRegion = MKCoordinateRegion(center: pLocation, span: spanValue)
+        // 두개를 사용해서 내가 봐야할 지점을 옮김 (확대)
+        //지도에 저장
+        myMap.setRegion(pRegion, animated: true)
+        
+    }//현재위치를 받는 함수를 만들어야 계쏙 업데이트 된다.
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        let pLocation = locations.last
+        //마지막 위치정보를 전달
+        //갱신 받은 최신정보이기도 하다
+        goLocation(latitudeValue: (pLocation?.coordinate.latitude)!, longitudeValue: (pLocation?.coordinate.longitude)!, delta: 0.01) //golocation 전달
+        //위치정보 갱신될 때마다 최신의 정보가 보여진다.
+        CLGeocoder().reverseGeocodeLocation(pLocation!, completionHandler: {
+            (placemarks, error) -> Void in
+            let pm = placemarks!.first
+        })//위치정보가 업데이트 될때마다 호출한다.
+    }//로케이션 메니저한테 델리게이트 받은 메소드임
+    
+    
     @IBAction func sgChangeLocation(_ sender: UISegmentedControl) {
     }
     
