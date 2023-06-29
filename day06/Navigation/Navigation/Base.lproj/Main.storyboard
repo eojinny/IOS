@@ -54,6 +54,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="imgView" destination="DCN-hx-ouW" id="mk5-6I-yvg"/>
                         <outlet property="txtMessage" destination="Ve2-Vd-ULP" id="jdt-cI-fHi"/>
                     </connections>
                 </viewController>
@@ -85,6 +86,9 @@
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bRj-Om-H3y">
                                 <rect key="frame" x="298" y="167" width="49" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="swImageOnOff:" destination="ttc-Id-2R4" eventType="valueChanged" id="a8G-rC-JoC"/>
+                                </connections>
                             </switch>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="65G-on-KnZ">
                                 <rect key="frame" x="294" y="124" width="54" height="35"/>
@@ -109,6 +113,7 @@
                     <navigationItem key="navigationItem" title="수정화면" id="fbv-ao-5bx"/>
                     <connections>
                         <outlet property="lblWay" destination="fTz-qW-qjk" id="11R-ee-Yvg"/>
+                        <outlet property="swisOn" destination="bRj-Om-H3y" id="JCC-Lz-3aG"/>
                         <outlet property="txMessage" destination="oMO-O5-d10" id="UZd-R4-pO7"/>
                     </connections>
                 </viewController>
