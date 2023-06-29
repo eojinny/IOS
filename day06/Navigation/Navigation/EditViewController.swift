@@ -11,6 +11,7 @@ protocol EditDelegate
 {
     func didMessageEditDone(_ controller: EditViewController, message: String)
     func didImageOnOffDone(_ controller: EditViewController, isOn: Bool)
+    func didImageZoomDone(_ controller: EditViewController, isZoom: Bool)
 }
 
 class EditViewController: UIViewController {
@@ -23,7 +24,11 @@ class EditViewController: UIViewController {
     var textMessage: String = ""
     var delegate : EditDelegate?
     
+    @IBOutlet var btnResize: UIButton!
+    
+    
     var isOn = false
+    var isZoom = false
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -37,6 +42,7 @@ class EditViewController: UIViewController {
         if delegate != nil{
             delegate?.didMessageEditDone(self, message: txMessage.text!)
             delegate?.didImageOnOffDone(self, isOn: isOn)
+            delegate?.didImageZoomDone(self, isZoom: isZoom)
         }//self로 바로 넣을 수 있을라면 _ ㅅ사용
         _ = navigationController?.popViewController(animated: true)
     }
@@ -49,6 +55,16 @@ class EditViewController: UIViewController {
             isOn = false
             
         }
+    }
+    @IBAction func btnImageZoom(_ sender: UIButton) {
+        
+        if isZoom {
+            btnResize.setTitle("축소", for: .normal)
+        }
+        else {
+            btnResize.setTitle("확대", for: .normal)
+        }
+        
     }
     
     
