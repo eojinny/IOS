@@ -10,7 +10,7 @@ import UIKit
 class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     let MAX_ARRAY_NUM = 10
     let PICKER_VIEW_COLUMN = 2 //피커 뷰를 상수값으로 지정하면 한개 여러개도 가능
-    var imageFileName : [String] = ["1.jpg","2.jpg","3.jpg","4.jpg","5.jpg","6.jpg","7.jpg","8.jpg","9.jpg","10.jpg",]
+    var imageFileName : [String] = ["1.jpg","2.jpg","3.jpg","4.jpg","5.jpg","6.jpg","7.jpg","8.jpg","9.jpg","10.jpg"]
     var imageArray = [UIImage?]()
     let PICKER_VIEW_HEIGHT:CGFloat = 80
     
