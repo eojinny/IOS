@@ -6,3 +6,12 @@
 //
 
 import Foundation
+class ItemDto{
+    var item : String?
+    var imageFile : String?
+    
+    init(_ item: String,_ imageFile: String) {
+        self.item = item
+        self.imageFile = imageFile
+    }
+}
